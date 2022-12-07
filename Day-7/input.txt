@@ -1,10 +1,10 @@
 $ cd /
 $ ls
-dir abc
+dir a
 14848514 b.txt
 8504156 c.dat
 dir d
-$ cd abc
+$ cd a
 $ ls
 dir e
 29116 f

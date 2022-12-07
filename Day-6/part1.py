@@ -8,13 +8,13 @@ def dup(somelist):
     no = False
     e = range(0,len(somelist))
     for times in e:
-        i=0+times+1
+        i = 0 + times + 1
         while i < len(somelist):
             if somelist[times] == somelist[i]:
                 yes = True
             else:
                 no = True
-            i+=1
+            i += 1
     if yes == False and no == True:
         return True
     else:

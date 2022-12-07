@@ -23,7 +23,7 @@ def find(inlist, infind, whatreturn):
                 pass
             i+=1
 
-with open('input.txt') as f:
+with open('Day-7/input.txt') as f:
     contents = f.read()
 x = contents.split("\n")
 list = []
@@ -48,28 +48,18 @@ for lines in x:
     elif lines.__contains__("$") == False and lines.__contains__("dir") == True:
         templist.append(lines)
 list.append(templist)
-list.pop(0)
+#list.pop(0)
 list.reverse()
 for lines in list:
     try:
-        index = lines[0].rindex('/')
-        test = lines[0][:index]
-        index = test.rindex('/')+1
-        final = test[index:]
-        #print(lines)
-        #print(test)
-        #print(final)
+        dest_dir = lines[0][:lines[0].rindex('/')]
+        dest_dir = dest_dir[:dest_dir.rindex('/')+1]
+        replace_dir = lines[0][:lines[0].rindex('/')]
+        replace_dir = replace_dir[dest_dir.rindex('/')+1:]
     except:
         pass
-        index = lines[0].rindex('/')
-        test2 = lines[0][:index]
-        index = lines[0].rindex('/')+1
-        key = test2[index:]
-        print(key)
-    
-    
     try:
-        list[find(list, test,0)][list[find(list, test,0)].index("dir "+key)]=mysum(lines)
+        list[find(list, dest_dir, 0)][list[find(list, dest_dir, 0)].index("dir " + replace_dir)]=mysum(lines)
     except:
         pass
 
@@ -77,11 +67,13 @@ for lines in list:
 
 sum=0
 for lines in list:
-    #print(lines)
-    #print(mysum(lines))
-    if mysum(lines) > 100000:
-        pass
-    else:
-        sum+=mysum(lines)
+    print(lines)
+    print(mysum(lines))
+    file = open('Failed.txt', 'a')
+    file.write(str(lines)+"\n")
+    file.write(str(mysum(lines))+"\n")
+    file.close()
+    if mysum(lines) < 100000:
+        sum+=mysum(lines) 
 print("SUM!")
 print(sum)
