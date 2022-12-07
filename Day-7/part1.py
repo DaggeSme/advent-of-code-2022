@@ -48,24 +48,28 @@ for lines in x:
     elif lines.__contains__("$") == False and lines.__contains__("dir") == True:
         templist.append(lines)
 list.append(templist)
-#list.pop(0)
+list.pop(0)
 list.reverse()
-for lines in list:
-    try:
+print(list)
+
+#if list contains dir. go to dir. if that dir conatins dir. go to dir and so forth. if not calculate sum then back out. do the rest until done
+
+
+
+""" for lines in list:
+    if lines.__contains__("$"):
         dest_dir = lines[0][:lines[0].rindex('/')]
         dest_dir = dest_dir[:dest_dir.rindex('/')+1]
         replace_dir = lines[0][:lines[0].rindex('/')]
         replace_dir = replace_dir[dest_dir.rindex('/')+1:]
-    except:
-        pass
-    try:
-        list[find(list, dest_dir, 0)][list[find(list, dest_dir, 0)].index("dir " + replace_dir)]=mysum(lines)
-    except:
-        pass
+        try:
+            list[find(list, dest_dir, 0)][list[find(list, dest_dir, 0)].index("dir " + replace_dir)]=mysum(lines)
+        except:
+            pass """
 
 
 
-sum=0
+""" sum=0
 for lines in list:
     print(lines)
     print(mysum(lines))
@@ -76,4 +80,4 @@ for lines in list:
     if mysum(lines) < 100000:
         sum+=mysum(lines) 
 print("SUM!")
-print(sum)
+print(sum) """
